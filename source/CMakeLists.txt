@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(MyProject)
 
-# 依存ライブラリの設定を読み込む
-add_subdirectory(cmake)
+find_package(Eigen3 REQUIRED NO_MODULE)
 
 # サブディレクトリを追加
 add_subdirectory(lib)

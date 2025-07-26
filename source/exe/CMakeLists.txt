@@ -1,5 +1,9 @@
-add_executable(myapp main.cpp)
+set(EXE myapp)
 
-target_link_libraries(myapp PRIVATE mylib ${MY_DEPS_LIBRARIES})
-target_include_directories(myapp PRIVATE ${PROJECT_SOURCE_DIR}/lib ${MY_DEPS_INCLUDE_DIRS})
+file(GLOB SRC CONFIGURE_DEPENDS *.cpp)
+add_executable(${EXE} ${SRC})
+
+target_link_libraries(${EXE} PRIVATE Eigen3::Eigen mylib)
+target_include_directories(${EXE} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
 
